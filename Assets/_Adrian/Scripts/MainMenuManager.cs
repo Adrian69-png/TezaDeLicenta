@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -29,5 +30,10 @@ public class MainMenuManager : MonoBehaviour
             PlayerPrefs.SetString("Username", usernameText.text);
             usernameInputPanel.SetActive(false);
         }
+    }
+
+    public void LoadScene(int i)
+    {
+        SceneManager.LoadScene(i);
     }
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Adrian/Scenes/MainMenu.unity
+    guid: f9cd121fa090c054b9769c2df38a4b2a
+  - enabled: 1
     path: Assets/BlocksEngine2/Scenes/BE2SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
@@ -17,4 +20,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/BlocksEngine2_SciFi/Scenes/ScifiBE2SampleScene.unity
     guid: 28db5afba24f900ba844c731679c8717
+  - enabled: 1
+    path: Assets/AnatomicPack/Scenes/AnatomyInsideScene.unity
+    guid: 57ae37c41c425a14ca37f818f7f3856a
+  - enabled: 1
+    path: Assets/AnatomicPack/Scenes/AnatomyScene.unity
+    guid: 2876cf5be4812f0469dc07b429efd0c2
+  - enabled: 1
+    path: Assets/AnatomicPack/Scenes/DNAScene.unity
+    guid: 2f117081ee6a1a6478eca0577245f1b6
+  - enabled: 1
+    path: Assets/AnatomicPack/Scenes/InsideVesselsScene.unity
+    guid: 06446acc6f3a22148ac68981c61243ba
+  - enabled: 1
+    path: Assets/Solar System/solar system.unity
+    guid: 169d5e817c9713b4d88e2e3aa91bee56
   m_configObjects: {}

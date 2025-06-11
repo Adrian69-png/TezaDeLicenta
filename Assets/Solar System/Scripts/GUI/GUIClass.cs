@@ -78,9 +78,9 @@ public class GUIClass : MonoBehaviour
 
 		auxOrbit = GameObject.Find ("AuxOrbit").GetComponent<AuxOrbit> ();
 
-		messageQueue.Enqueue (initialMessage);
-		messageQueue.Enqueue (secondMessage);
-		messageQueue.Enqueue (thirdMessage);
+		//messageQueue.Enqueue (initialMessage);
+		//messageQueue.Enqueue (secondMessage);
+		//messageQueue.Enqueue (thirdMessage);
 	}
 
 	void Update ()
@@ -101,8 +101,8 @@ public class GUIClass : MonoBehaviour
 		}
 /******************************************************************************************************************/
 		if (messageQueue.Count != 0 && messageIsBeingDisplayed == false) {
-			messageToBeDisplayed = messageQueue.Dequeue ();
-			StartCoroutine (CountdownForMessage (Scales.messageDuration));
+			//messageToBeDisplayed = messageQueue.Dequeue ();
+			//StartCoroutine (CountdownForMessage (Scales.messageDuration));
 		}
 /******************************************************************************************************************/
 		gravityLevel0 = Scales.GravityLevel.normal;
@@ -120,7 +120,7 @@ public class GUIClass : MonoBehaviour
 
 		if (gravityLevel0 != Scales.GravityLevel.normal && strongGravityMessageQueued == false) {
 			strongGravityMessageQueued = true;
-			messageQueue.Enqueue (strongGravityMessage);
+			//messageQueue.Enqueue (strongGravityMessage);
 		}
 
 		switch (gravityLevel0) {
@@ -206,12 +206,12 @@ public class GUIClass : MonoBehaviour
 				buttonStatus &= Buttons.gravityButton;
 			}
 			if (GUI.Button (new Rect (Screen.width - width - offSetX, y1 + 2 * offSetY, width, y2), "Credits")) {
-				messageQueue.Enqueue (creditsMessage);
+				//messageQueue.Enqueue (creditsMessage);
 				buttonStatus = 0;
 			}
 			if (GUI.Button (new Rect (Screen.width - width - offSetX, y1 + 3 * offSetY, width, y2), "Controls")) {
-				messageQueue.Enqueue (controlsMessage1);
-				messageQueue.Enqueue (controlsMessage2);
+				//messageQueue.Enqueue (controlsMessage1);
+				//messageQueue.Enqueue (controlsMessage2);
 				buttonStatus = 0;
 			}
 		}
@@ -292,7 +292,7 @@ public class GUIClass : MonoBehaviour
 				ShowLaunchPanel (0f, 360f, 0f, 16.3f * Scales.kms2velmu, "Generic");
 			else {
 				buttonStatus = 0;
-				messageQueue.Enqueue ("Complete the first 5 objectives to unlock this!");
+				//messageQueue.Enqueue ("Complete the first 5 objectives to unlock this!");
 			}
 		} else if (buttonStatus == Buttons.courseCorrectionButton) {
 			if (selectedSc != null) {
