@@ -19,26 +19,52 @@ public class PlanetInfo : MonoBehaviour
 		planet = GetComponent<Planet> ();
 	}
 
-	private void Update ()
-	{
-		float width;
+    private void Update()
+    {
+        float width;
 
-		if (planet.PlanetCameraDistance > thresDist)
-			width = 18 * transform.localScale.x;
-		else
-			width = (18 * transform.localScale.x - 160) / thresDist * planet.PlanetCameraDistance + 160;
+        if (planet.PlanetCameraDistance > thresDist)
+            width = 18 * transform.localScale.x;
+        else
+            width = (18 * transform.localScale.x - 160) / thresDist * planet.PlanetCameraDistance + 160;
 
-		Vector2 screenPos = Camera.main.WorldToScreenPoint (transform.position);
-		Rect rect = new Rect (screenPos.x - width / 2, screenPos.y - width / 2, width, width);
-		if (rect.Contains (Input.mousePosition) && Input.GetMouseButtonDown (0)) {
-			foreach (Planet p in planetList) {
-				p.IsSelected = false;
-			}
-			isSelected = true;
-		}
-	}
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Rect rect = new Rect(screenPos.x - width / 2, screenPos.y - width / 2, width, width);
 
-	private void OnGUI ()
+        // Verificăm input-ul pentru ambele platforme (mobile și desktop)
+        bool isTapped = false;
+
+        // Pentru dispozitive mobile (touch)
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began && rect.Contains(touch.position))
+            {
+                isTapped = true;
+            }
+        }
+        // Pentru desktop (mouse)
+        else if (rect.Contains(Input.mousePosition) && Input.GetMouseButtonDown(0))
+        {
+            isTapped = true;
+        }
+
+        if (isTapped)
+        {
+            foreach (Planet p in planetList)
+            {
+                p.IsSelected = false;
+            }
+            isSelected = true;
+
+            // Adăugăm un feedback vizual pentru touch (opțional)
+#if UNITY_IOS || UNITY_ANDROID
+        Handheld.Vibrate(); // Vibrație pe dispozitive mobile
+#endif
+        }
+    }
+
+    private void OnGUI ()
 	{
 		if (isSelected) {
 			Vector2 sizeOfLabel = GUI.skin.textField.CalcSize (new GUIContent (name));

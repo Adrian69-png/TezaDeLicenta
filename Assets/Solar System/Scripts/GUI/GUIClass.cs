@@ -136,7 +136,23 @@ public class GUIClass : MonoBehaviour
 		}
 	}
 
-	void OnGUI ()
+	public void DecreaseTimeScale()
+	{
+        Scales.DecreaseTimeScale();
+    }
+    public void IncreaseTimeScale()
+    {
+        Scales.IncreaseTimeScale();
+    }
+    public void Pause()
+    {
+        Scales.Pause = true;
+    }
+    public void DisablePause()
+    {
+        Scales.Pause = false;
+    }
+    /*void OnGUI ()
 	{
 		GUI.skin = customSkin;
 
@@ -153,7 +169,7 @@ public class GUIClass : MonoBehaviour
 		}
 		offX += stopIcon.width + 10f;
 
-		if (GUI.Button (new Rect (offX, y1, plusIcon.width, y2), plusIcon)) {
+		/*if (GUI.Button (new Rect (offX, y1, plusIcon.width, y2), plusIcon)) {
 			Scales.IncreaseTimeScale ();
 		}
 		offX += plusIcon.width;
@@ -311,7 +327,7 @@ public class GUIClass : MonoBehaviour
 
 		if (messageIsBeingDisplayed == true)
 			GUI.Box (new Rect (Screen.width / 2 - 150, Screen.height / 2 - 100, 300, 175), messageToBeDisplayed);
-	}
+	}*/
 
 	IEnumerator CountdownForMessage (float time0)
 	{
